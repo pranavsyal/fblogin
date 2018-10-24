@@ -1,0 +1,10 @@
+<% include partials/header %>
+
+<div class = "container-fluid">
+<% if (!user) { %>
+	<p>Welcome! Please <a href="/login">Log In</a>.</p>
+<% } else { %>
+	<p>Hello, <strong><%= user.displayName %></strong>. View your <a href="/profile">profile</a>.</p>
+<% } %>
+</div>
+<% include partials/footer %>

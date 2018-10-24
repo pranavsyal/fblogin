@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+<div class = "container-fluid">
+	<p>
+		<label class="my-2">ID: <strong><%= user.id %></strong></label><br/>
+		<label class="mb-2">Name: <strong><%= user.displayName %></strong></label><br/>
+	<% if (user.emails) { %>
+		<label class="mb-2">Email: <strong><%= user.emails[0].value %></strong></label><br/>
+	<% } %>
+	<% if(user.provider =="facebook") { %>
+		<label class="mb-2">Profile Image: <img class="img-fluid" src="http://graph.facebook.com/<%= user.id %>/picture?type=large&width=720&height=720"></label><br/>
+	<% } else { %>
+		<label class="mb-2">Profile Image: <img class="img-fluid" src="<%= user.photos[0].value %>"></label><br/>
+	<% } %>
+	</p>
+<div class = "container-fluid">
+<a href="/logout" class="btn btn-primary m-2" style="width: 175px;">Log Out!</a>
+</div>
+
+</div>
+
+<% include partials/footer %>
